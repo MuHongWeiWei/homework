@@ -1,22 +1,25 @@
 package com.train;
 
 public class Ticket {
-    private int amount;
+    private static final int ROUND_TRIP_PRICE = 2000;
+    private static final int ONE_WAY = 1000;
+    private static final double DISCOUNT = 0.9;
+    private int totalTicket;
+    private int roundTripTicket;
     private int price;
-    private int roundTrip;
 
-    public Ticket(int amount, int roundTrip) {
-        this.amount = amount;
-        this.roundTrip = roundTrip;
-        setPrice((amount - roundTrip) * 1000 + (int) (roundTrip * 2000 * 0.9));
+    public Ticket(int totalTicket, int roundTripTicket) {
+        this.totalTicket = totalTicket;
+        this.roundTripTicket = roundTripTicket;
+        setPrice((totalTicket - roundTripTicket) * ONE_WAY + (int) (roundTripTicket * ROUND_TRIP_PRICE * DISCOUNT));
     }
 
-    public int getAmount() {
-        return amount;
+    public int getTotalTicket() {
+        return totalTicket;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setTotalTicket(int totalTicket) {
+        this.totalTicket = totalTicket;
     }
 
     public String getPrice() {
@@ -27,11 +30,11 @@ public class Ticket {
         this.price = price;
     }
 
-    public int getRoundTrip() {
-        return roundTrip;
+    public int getRoundTripTicket() {
+        return roundTripTicket;
     }
 
-    public void setRoundTrip(int roundTrip) {
-        this.roundTrip = roundTrip;
+    public void setRoundTripTicket(int roundTripTicket) {
+        this.roundTripTicket = roundTripTicket;
     }
 }
